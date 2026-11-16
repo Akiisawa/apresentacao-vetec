@@ -19,7 +19,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-light);
-    overflow-x: hidden;
+    overflow: hidden;
     line-height: 1.6;
     background-image: 
         linear-gradient(var(--border-color) 1px, transparent 1px),
@@ -33,12 +33,14 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
 
 /* Layout de Seção Padrão */
 section {
-    min-height: 100vh; 
+    height: 100vh; /* Mudou de min-height para height */
+    box-sizing: border-box; /* Garante que o padding não estoure a tela */
     display: flex; 
     flex-direction: column;
     justify-content: center; 
     padding: 40px 0; 
     position: relative;
+    overflow-y: auto; /* Permite rolagem APENAS dentro do slide se a tela for muito pequena */
 }
 
 /* Ícones nos Títulos */
@@ -1535,4 +1537,389 @@ canvas { display: block; width: 100%; height: 100%; }
     .pricing-modules {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   SLIDE 9: PAINEL HMI (SIMULADOR)
+   ========================================= */
+.hmi-panel {
+    background: #0B1120;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Cabeçalho do Painel */
+.hmi-header {
+    background: rgba(17, 34, 64, 0.8);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.hmi-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--success-green);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hmi-status .pulse-dot {
+    width: 8px; height: 8px;
+    background: var(--success-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--success-green);
+    animation: pulse 1.5s infinite;
+}
+
+.hmi-status.danger { color: var(--danger-red); }
+.hmi-status.danger .pulse-dot {
+    background: var(--danger-red);
+    box-shadow: 0 0 10px var(--danger-red);
+}
+
+.hmi-title { color: var(--accent-blue); letter-spacing: 2px; }
+
+/* Container do Canvas */
+.hmi-canvas-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    background: #060810;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+canvas { display: block; width: 100%; height: 100%; }
+
+/* Cantos de moldura (Viewfinder) */
+.corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2px solid var(--accent-blue);
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.hmi-canvas-container:hover .corner { opacity: 1; }
+.corner-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.corner-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+.corner-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+.hmi-overlay-instruction {
+    position: absolute;
+    bottom: 15px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 17, 40, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Rodapé (Telemetria e Controles) */
+.hmi-footer {
+    background: rgba(17, 34, 64, 0.8);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.hmi-telemetry {
+    display: flex;
+    gap: 2rem;
+}
+
+.telemetry-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.tel-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.tel-value.danger { color: var(--danger-red); }
+.tel-value.success { color: var(--success-green); }
+
+.hmi-controls {
+    display: flex;
+    background: #060810;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hmi-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hmi-btn:hover { color: #fff; }
+
+.hmi-btn.active {
+    background: var(--primary-blue);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.hmi-btn.danger.active {
+    background: var(--danger-red);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .hmi-footer {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .hmi-telemetry {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .hmi-controls {
+        width: 100%;
+    }
+    .hmi-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   SLIDE 1: NOVA CAPA (CENTRO DE COMANDO)
+   ========================================= */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Elementos de HUD (Cantos da tela) */
+.hud-corner {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    z-index: 10;
+}
+.hud-corner::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--accent-blue);
+    opacity: 0.5;
+}
+.top-left { top: 30px; left: 30px; }
+.top-left::before { top: -10px; left: -10px; border-right: none; border-bottom: none; }
+
+.top-right { top: 30px; right: 30px; text-align: right; }
+.top-right::before { top: -10px; right: -10px; border-left: none; border-bottom: none; }
+
+.bottom-left { bottom: 30px; left: 30px; }
+.bottom-left::before { bottom: -10px; left: -10px; border-right: none; border-top: none; }
+
+.bottom-right { bottom: 30px; right: 30px; text-align: right; }
+.bottom-right::before { bottom: -10px; right: -10px; border-left: none; border-top: none; }
+
+.color-success { color: var(--success-green); font-weight: bold; }
+
+/* Conteúdo Central */
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 800px;
+    position: relative;
+}
+
+.hero-tag-wrapper {
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid var(--primary-blue);
+    color: var(--accent-blue);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Título */
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* Terminal de Texto */
+.terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.terminal-line .prompt { color: var(--success-green); font-weight: bold; }
+
+/* Cursor piscando */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: var(--accent-blue);
+    animation: blink 1s step-end infinite;
+}
+
+/* Botão de Avançar (Dica) */
+.start-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.start-hint:hover {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.key-icon {
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    animation: pulseRight 2s infinite;
+}
+
+.start-hint span:last-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* Linha de Scan (Varredura) */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.5), transparent);
+    animation: scan 4s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulseRight {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+/* Esconde a barra de rolagem visualmente, mas mantém a funcionalidade */
+section::-webkit-scrollbar {
+    display: none;
+}
+section {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

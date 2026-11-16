@@ -20,14 +20,57 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="hero container">
-        <div class="hidden">
-            <span class="hero-tag"><i class="fa-solid fa-bolt"></i> Transformação Digital</span>
-            <h1>Unificando Processos<br>com ERP</h1>
-            <p>Do fluxo fragmentado à gestão integrada de usinagem, solda e engenharia na Vetec.</p>
-            <p style="font-size: 1rem; color: var(--accent-blue);"><i class="fa-solid fa-industry"></i> Apresentação Executiva | Engenharia Industrial</p>
+    <section class="hero container hidden">
+        
+        <!-- Elementos de Interface (HUD) nos cantos -->
+        <div class="hud-corner top-left">
+            <span>SYS.STATUS: <span class="color-success">ONLINE</span></span>
         </div>
+        <div class="hud-corner top-right">
+            <span>DATE: 2026 // V.2.0</span>
+        </div>
+        <div class="hud-corner bottom-left">
+            <span>LOC: CATALÃO - GO</span>
+        </div>
+        <div class="hud-corner bottom-right">
+            <span>VETEC ENGINEERING</span>
+        </div>
+
+        <div class="hero-content">
+            <!-- Tag no topo -->
+            <div class="hero-tag-wrapper">
+                <span class="hero-tag"><i class="fa-solid fa-bolt"></i> Apresentação Executiva</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="hero-title">
+                Transformação Digital<br>
+                <span class="text-gradient">na Vetec</span>
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="hero-subtitle">
+                Do fluxo fragmentado à gestão integrada de usinagem, solda e engenharia.
+            </p>
+
+            <!-- Linha de Terminal -->
+            <div class="terminal-line">
+                <span class="prompt">></span>
+                <span class="typing">Iniciando_Protocolo_ERP...</span>
+                <span class="cursor"></span>
+            </div>
+
+            <!-- Indicador para avançar -->
+            <div class="start-hint" onclick="window.location.href='slide-2.html'">
+                <span class="key-icon"><i class="fa-solid fa-arrow-right"></i></span>
+                <span>Pressione a seta para começar</span>
+            </div>
+        </div>
+
+        <!-- Linha de Scan animada -->
+        <div class="scan-line"></div>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -20,33 +20,76 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="sim-header hidden">
-            <span class="hero-tag" style="margin-bottom: 10px;"><i class="fa-solid fa-network-wired"></i> Simulador de Arquitetura</span>
+    <section class="container hidden">
+        
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="hero-tag"><i class="fa-solid fa-network-wired"></i> Simulador de Arquitetura</span>
+            <h2 class="title-section" style="border: none; padding: 0; font-size: 2.2rem; margin-top: 0.5rem;">A Evolução da Vetec</h2>
+            <p class="subtitle" style="padding: 0;">Compare o fluxo fragmentado atual com a sincronia de um ecossistema ERP.</p>
+        </div>
+
+        <!-- PAINEL DE CONTROLE INDUSTRIAL (HMI) -->
+        <div class="hmi-panel">
             
-            <div class="sim-toggle">
-                <button id="btnChaosMode" class="sim-btn" onclick="setEcosystemMode('chaos')">
-                    <span class="dot-indicator" style="background:#fff;"></span> Empresa Fragmentada
-                </button>
-                <button id="btnErpMode" class="sim-btn active-erp" onclick="setEcosystemMode('erp')">
-                    <span class="dot-indicator" style="background:#fff;"></span> Ecossistema ERP Vetec
-                </button>
+            <!-- Cabeçalho do Painel -->
+            <div class="hmi-header">
+                <div class="hmi-status">
+                    <span class="pulse-dot" id="hmi-live-dot"></span>
+                    <span id="hmi-live-text">SISTEMA OPERACIONAL</span>
+                </div>
+                <div class="hmi-title">VETEC // NETWORK TOPOLOGY</div>
+                <div class="hmi-version">v2.0.26</div>
+            </div>
+
+            <!-- Área do Canvas -->
+            <div class="hmi-canvas-container" onclick="toggleEcosystemMode()">
+                <canvas id="ecosystemCanvas"></canvas>
+                
+                <!-- Efeitos de moldura -->
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+                
+                <div class="hmi-overlay-instruction">
+                    <i class="fa-solid fa-computer-mouse"></i> Clique na tela para alternar os modos
+                </div>
+            </div>
+
+            <!-- Rodapé do Painel (Controles e Telemetria) -->
+            <div class="hmi-footer">
+                
+                <!-- Telemetria (Lado Esquerdo) -->
+                <div class="hmi-telemetry">
+                    <div class="telemetry-item">
+                        <span class="tel-label">LATÊNCIA</span>
+                        <span class="tel-value" id="tel-latency">4.8s</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="tel-label">NÓS CONECTADOS</span>
+                        <span class="tel-value" id="tel-nodes">0 / 6</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="tel-label">INTEGRIDADE DE DADOS</span>
+                        <span class="tel-value" id="tel-data">41%</span>
+                    </div>
+                </div>
+
+                <!-- Switch de Controle (Lado Direito) -->
+                <div class="hmi-controls">
+                    <button id="btnChaosMode" class="hmi-btn" onclick="setEcosystemMode('chaos')">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Fragmentado
+                    </button>
+                    <button id="btnErpMode" class="hmi-btn active" onclick="setEcosystemMode('erp')">
+                        <i class="fa-solid fa-microchip"></i> Ecossistema ERP
+                    </button>
+                </div>
+
             </div>
         </div>
 
-        <div class="canvas-container hidden" onclick="toggleEcosystemMode()">
-            <canvas id="ecosystemCanvas"></canvas>
-            
-            <div id="ecoStatusPill" class="canvas-hud">
-                <span class="dot-indicator dot-success" id="ecoStatusDot"></span>
-                <span id="ecoStatusText">SINCRONIA TOTAL: ERP + ENGENHARIA + PRODUÇÃO CONECTADOS</span>
-            </div>
-            
-            <div style="position: absolute; bottom: 15px; right: 15px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); opacity: 0.6; pointer-events: none;">
-                <i class="fa-solid fa-computer-mouse"></i> Clique na tela para alternar
-            </div>
-        </div>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

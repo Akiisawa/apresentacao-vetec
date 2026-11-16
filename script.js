@@ -6,13 +6,38 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 100);
 
-    // 2. Lógica do Simulador (Só roda se o canvas existir na página)
+    // 2. Navegação por Setas do Teclado
+    window.addEventListener('keydown', function(e) {
+        const paginas = ['index.html', 'slide-2.html', 'slide-3.html', 'slide-4.html', 'slide-5.html', 'slide-6.html', 'slide-7.html', 'slide-8.html', 'slide-9.html', 'slide-10.html'];
+        let pathAtual = window.location.pathname.split('/').pop() || 'index.html';
+        const indexAtual = paginas.indexOf(pathAtual);
+
+        if (indexAtual !== -1) {
+            if (e.key === 'ArrowRight' && indexAtual < paginas.length - 1) {
+                window.location.href = paginas[indexAtual + 1];
+            } else if (e.key === 'ArrowLeft' && indexAtual > 0) {
+                window.location.href = paginas[indexAtual - 1];
+            }
+        }
+    });
+
+    // 3. Lógica do Simulador HMI
     const ecoCanvas = document.getElementById('ecosystemCanvas');
     if (ecoCanvas) {
         const eCtx = ecoCanvas.getContext('2d');
         let ecoMode = 'erp'; 
         let packetProgress = 0;
         let fontsLoaded = false;
+
+        // Elementos da UI (Telemetria e Status)
+        const hmiStatus = document.querySelector('.hmi-status');
+        const hmiLiveDot = document.getElementById('hmi-live-dot');
+        const hmiLiveText = document.getElementById('hmi-live-text');
+        const telLatency = document.getElementById('tel-latency');
+        const telNodes = document.getElementById('tel-nodes');
+        const telData = document.getElementById('tel-data');
+        const btnChaos = document.getElementById('btnChaosMode');
+        const btnErp = document.getElementById('btnErpMode');
 
         const ecoNodes = [
             { name: 'ENGENHARIA', icon: '\uf568', angle: 0, cx: 0.2, cy: 0.25, vx: 1.1, vy: 0.8 },
@@ -38,24 +63,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
         window.setEcosystemMode = function(mode) {
             ecoMode = mode;
-            const btnChaos = document.getElementById('btnChaosMode');
-            const btnErp = document.getElementById('btnErpMode');
-            const pill = document.getElementById('ecoStatusPill');
-            const dot = document.getElementById('ecoStatusDot');
-            const text = document.getElementById('ecoStatusText');
-
+            
             if (mode === 'erp') {
-                btnErp.className = 'sim-btn active-erp';
-                btnChaos.className = 'sim-btn';
-                dot.className = 'dot-indicator dot-success';
-                text.textContent = 'SINCRONIA TOTAL: ERP VETEC + TODOS OS SETORES CONECTADOS';
-                pill.style.borderColor = 'rgba(37, 99, 235, 0.4)';
+                btnErp.className = 'hmi-btn active';
+                btnChaos.className = 'hmi-btn';
+                hmiStatus.classList.remove('danger');
+                hmiLiveText.textContent = 'SISTEMA OPERACIONAL';
+                
+                // Atualiza Telemetria
+                telLatency.textContent = '0.2s';
+                telLatency.className = 'tel-value success';
+                telNodes.textContent = '6 / 6';
+                telNodes.className = 'tel-value success';
+                telData.textContent = '100%';
+                telData.className = 'tel-value success';
+
             } else {
-                btnChaos.className = 'sim-btn active-chaos';
-                btnErp.className = 'sim-btn';
-                dot.className = 'dot-indicator dot-danger';
-                text.textContent = 'MODO FRAGMENTADO: PLANILHAS SOLTAS, WHATSAPP E RETRABALHO';
-                pill.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+                btnChaos.className = 'hmi-btn danger active';
+                btnErp.className = 'hmi-btn';
+                hmiStatus.classList.add('danger');
+                hmiLiveText.textContent = 'ALERTA: FRAGMENTAÇÃO';
+                
+                // Atualiza Telemetria
+                telLatency.textContent = '4.8s';
+                telLatency.className = 'tel-value danger';
+                telNodes.textContent = '0 / 6';
+                telNodes.className = 'tel-value danger';
+                telData.textContent = '41%';
+                telData.className = 'tel-value danger';
             }
         }
 
@@ -72,8 +107,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const centerX = w / 2;
             const centerY = h / 2 + 10;
             const radius = Math.min(w, h) * 0.33;
-            packetProgress = (packetProgress + 0.015) % 1;
+            packetProgress = (packetProgress + 0.004) % 1;
 
+            // Atualiza posições
             ecoNodes.forEach((node) => {
                 if (ecoMode === 'erp') {
                     node.angle += 0.004;
@@ -90,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
+            // Desenha conexões
             if (ecoMode === 'erp') {
                 ecoNodes.forEach((node, idx) => {
                     const nextNode = ecoNodes[(idx + 1) % ecoNodes.length];
@@ -120,6 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 eCtx.setLineDash([]);
             }
 
+            // Desenha os nós
             ecoNodes.forEach(node => {
                 eCtx.beginPath(); eCtx.roundRect(node.x - 80, node.y - 22, 160, 44, 10); eCtx.fillStyle = '#0A1128'; eCtx.fill();
                 eCtx.lineWidth = 1.5; eCtx.strokeStyle = ecoMode === 'erp' ? 'rgba(37, 99, 235, 0.8)' : 'rgba(239, 68, 68, 0.6)'; eCtx.stroke();
@@ -132,42 +170,12 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             requestAnimationFrame(renderEcosystemCanvas);
         }
+        
         if (document.fonts.check('900 14px "Font Awesome 6 Free"')) {
             fontsLoaded = true; resizeEcoCanvas(); requestAnimationFrame(renderEcosystemCanvas);
         }
+
+        // Inicializa no modo ERP
+        setEcosystemMode('erp');
     }
-
-    // 3. NAVEGAÇÃO POR SETAS DO TECLADO (ESQUERDA E DIREITA)
-    window.addEventListener('keydown', function(e) {
-        // Lista de todas as páginas em ordem
-        const paginas = [
-            'index.html', 
-            'slide-2.html', 
-            'slide-3.html', 
-            'slide-4.html', 
-            'slide-5.html',
-            'slide-6.html', 
-            'slide-7.html', 
-            'slide-8.html', 
-            'slide-9.html', 
-            'slide-10.html'
-        ];
-
-        // Descobre em qual página o usuário está no momento
-        let pathAtual = window.location.pathname.split('/').pop();
-        if (pathAtual === '' || pathAtual === undefined) {
-            pathAtual = 'index.html'; // Se for a raiz da pasta
-        }
-
-        const indexAtual = paginas.indexOf(pathAtual);
-
-        // Se encontrou a página na lista, executa a ação da seta
-        if (indexAtual !== -1) {
-            if (e.key === 'ArrowRight' && indexAtual < paginas.length - 1) {
-                window.location.href = paginas[indexAtual + 1];
-            } else if (e.key === 'ArrowLeft' && indexAtual > 0) {
-                window.location.href = paginas[indexAtual - 1];
-            }
-        }
-    });
 });

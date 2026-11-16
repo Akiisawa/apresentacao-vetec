@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- NAVEGAÇÃO LATERAL -->
     <nav class="side-nav">
         <a href="index.html" class="nav-dot" data-label="Capa"></a>
         <a href="slide-2.html" class="nav-dot" data-label="A Força da Vetec"></a>
@@ -20,19 +21,79 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
-            <h2 class="title-section"><i class="fa-solid fa-server"></i> A Espinha Dorsal Digital</h2>
-            <p class="subtitle">Como o ERP se conecta ao chão de fábrica e elimina ilhas de informação.</p>
-            
-            <ul class="list-features">
-                <li><strong>Unificação Total:</strong> Vendas, engenharia, compras, PCP, produção e financeiro falando a mesma língua.</li>
-                <li><strong>Integração CAD/PLM → ERP:</strong> Importação automática de listas de materiais e tempos de usinagem direto para o sistema.</li>
-                <li><strong>MES/BDE → ERP:</strong> Apontamento de produção em tempo real (início/fim de operação, refugo, paradas) direto do chão de fábrica.</li>
-                <li><strong>ERP → Cliente:</strong> Status da OS e previsão de entrega atualizados automaticamente, sem intervenção manual.</li>
-            </ul>
+    <!-- CONTEÚDO DO SLIDE -->
+    <section class="container hidden hub-section">
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <span class="hero-tag"><i class="fa-solid fa-server"></i> Arquitetura de Dados</span>
+            <h2 class="title-section" style="border: none; padding: 0; font-size: 2.5rem; margin-top: 1rem;">A Espinha Dorsal Digital</h2>
+            <p class="subtitle" style="padding: 0; margin-top: 0.5rem;">Como o ERP unifica o fluxo de informações da Vetec.</p>
         </div>
+
+        <!-- DIAGRAMA DE TEIA (HUB) -->
+        <div class="hub-grid">
+            
+            <!-- Coluna Esquerda -->
+            <div class="hub-col side-col">
+                <div class="hub-node">
+                    <i class="fa-solid fa-compass-drafting"></i>
+                    <div><h4>Engenharia</h4><span>CAD/PLM Integrados</span></div>
+                </div>
+                <div class="hub-node">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <div><h4>PCP</h4><span>Planejamento de Capacidade</span></div>
+                </div>
+                <div class="hub-node">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div><h4>Compras</h4><span>Requisições Automáticas</span></div>
+                </div>
+            </div>
+
+            <!-- Centro (Core) -->
+            <div class="hub-col center-col">
+                <!-- Linhas Conectoras Animadas (Fundo) -->
+                <div class="connection-lines">
+                    <div class="line line-left-1"></div>
+                    <div class="line line-left-2"></div>
+                    <div class="line line-left-3"></div>
+                    <div class="line line-right-1"></div>
+                    <div class="line line-right-2"></div>
+                    <div class="line line-right-3"></div>
+                </div>
+
+                <div class="hub-core">
+                    <div class="core-pulse"></div>
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>ERP VETEC</h3>
+                    <p>Dados em Tempo Real</p>
+                </div>
+            </div>
+
+            <!-- Coluna Direita -->
+            <div class="hub-col side-col">
+                <div class="hub-node">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <div><h4>Estoque</h4><span>Rastreabilidade Total</span></div>
+                </div>
+                <div class="hub-node">
+                    <i class="fa-solid fa-industry"></i>
+                    <div><h4>Produção</h4><span>Apontamento no Chão de Fábrica</span></div>
+                </div>
+                <div class="hub-node">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <div><h4>Financeiro</h4><span>Custo Real por OS</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Rodapé explicativo -->
+        <div style="text-align: center; margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem;">
+            <i class="fa-solid fa-circle-info" style="color: var(--accent-blue);"></i> Informação flui de forma unidirecional para o centro, eliminando ilhas de dados e planilhas soltas.
+        </div>
+
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

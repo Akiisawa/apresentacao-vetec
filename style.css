@@ -297,3 +297,203 @@ canvas { display: block; width: 100%; height: 100%; }
     .canvas-container { height: 400px; }
     .total-box .final-price { font-size: 2rem; }
 }
+
+/* =========================================
+   SLIDE 4: DIAGRAMA HUB (TEIA DE INTEGRAÇÃO)
+   ========================================= */
+.hub-section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    align-items: center;
+    position: relative;
+}
+
+/* Colunas Laterais */
+.hub-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cartões dos Setores */
+.hub-node {
+    background: rgba(17, 34, 64, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hub-node:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-blue);
+    background: rgba(17, 34, 64, 0.95);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+}
+
+.hub-node i {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    width: 40px;
+    text-align: center;
+}
+
+.hub-node h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.hub-node span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Coluna Central e Núcleo ERP */
+.center-col {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hub-core {
+    background: radial-gradient(circle at 50% 0%, #1e3a8a, #0f172a);
+    border: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 0 50px rgba(37, 99, 235, 0.3), inset 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.hub-core i {
+    font-size: 3.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.8));
+}
+
+.hub-core h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.hub-core p {
+    color: var(--accent-blue);
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 0.2rem;
+}
+
+/* Animação do Pulso do Núcleo */
+.core-pulse {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--accent-blue);
+    animation: pulseCore 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+@keyframes pulseCore {
+    0% { width: 100%; height: 100%; opacity: 1; }
+    100% { width: 150%; height: 150%; opacity: 0; }
+}
+
+/* =========================================
+   LINHAS CONECTORAS (DADOS FLUINDO)
+   ========================================= */
+.connection-lines {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.line {
+    position: absolute;
+    height: 2px;
+    background: rgba(74, 144, 226, 0.2);
+    width: 50%;
+    top: 50%;
+}
+
+/* Efeito de Dados Passando (Laser Azul) */
+.line::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 30px;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    animation: dataFlow 2s infinite linear;
+}
+
+/* Posicionamento das linhas da esquerda */
+.line-left-1 { right: 50%; transform: translateY(-80px); }
+.line-left-2 { right: 50%; transform: translateY(0); }
+.line-left-3 { right: 50%; transform: translateY(80px); }
+
+/* Posicionamento das linhas da direita */
+.line-right-1 { left: 50%; transform: translateY(-80px); }
+.line-right-2 { left: 50%; transform: translateY(0); }
+.line-right-3 { left: 50%; transform: translateY(80px); }
+
+/* Direções das animações */
+.line-left-1::after, .line-left-2::after, .line-left-3::after {
+    animation-name: dataFlowLeft;
+}
+.line-right-1::after, .line-right-2::after, .line-right-3::after {
+    animation-name: dataFlowRight;
+}
+
+@keyframes dataFlowLeft {
+    0% { right: 0; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { right: 100%; opacity: 0; }
+}
+
+@keyframes dataFlowRight {
+    0% { left: 0; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+    .hub-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .connection-lines { display: none; } /* Esconde linhas no mobile */
+    .hub-core { width: 200px; height: 200px; }
+    .hub-node { transform: none !important; }
+}

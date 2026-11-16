@@ -497,3 +497,1042 @@ canvas { display: block; width: 100%; height: 100%; }
     .hub-core { width: 200px; height: 200px; }
     .hub-node { transform: none !important; }
 }
+
+/* =========================================
+   SLIDE 7: DASHBOARD DE ROI
+   ========================================= */
+.roi-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Lado Esquerdo (Benefícios) */
+.roi-benefits {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+}
+
+.roi-benefits h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.roi-benefits h3 i { color: var(--accent-blue); margin-right: 10px; }
+
+.benefit-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid var(--primary-blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.benefit-item h4 {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.benefit-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Lado Direito (Placar) */
+.roi-scoreboard {
+    background: linear-gradient(180deg, #0B1120 0%, #060810 100%);
+    border: 2px solid var(--success-green);
+    border-radius: 12px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+}
+
+.scoreboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+.scoreboard-header i { color: var(--success-green); font-size: 1.2rem; }
+
+.metric-highlight {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.metric-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--success-green);
+    line-height: 1.1;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.metric-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Gráfico de Barras CSS */
+.roi-bars-container {
+    margin-bottom: 2rem;
+}
+
+.bar-group {
+    margin-bottom: 1rem;
+}
+
+.bar-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.bar-track {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 1s ease-in-out;
+}
+
+.bar-investment {
+    background: var(--accent-blue);
+}
+
+.bar-return {
+    background: var(--success-green);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+}
+
+/* Payback */
+.payback-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.payback-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.payback-icon {
+    font-size: 2.5rem;
+    color: var(--success-green);
+    opacity: 0.8;
+}
+
+/* Tag de Eficiência */
+.efficiency-tag {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .roi-dashboard {
+        grid-template-columns: 1fr;
+    }
+    .metric-value {
+        font-size: 2.8rem;
+    }
+}
+
+/* =========================================
+   SLIDE 5: TIMELINE HORIZONTAL (JORNADA DA OS)
+   ========================================= */
+.timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 40px;
+}
+
+/* Linha de fundo conectando os passos */
+.timeline-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 80px; /* Alinhado com o centro dos ícones */
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: rgba(74, 144, 226, 0.2);
+    z-index: 1;
+}
+
+/* Efeito de dado passando na linha */
+.timeline-horizontal::after {
+    content: '';
+    position: absolute;
+    top: 80px;
+    left: 5%;
+    height: 2px;
+    width: 20%;
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+    z-index: 1;
+    animation: timelineFlow 3s infinite linear;
+}
+
+@keyframes timelineFlow {
+    0% { left: 5%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { left: 85%; opacity: 0; }
+}
+
+/* Cada Passo da Timeline */
+.timeline-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-step:hover {
+    transform: translateY(-5px);
+}
+
+/* O Ícone no centro (Substitui o antigo Cartão) */
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-card);
+    border: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Efeito de pulso ao passar o mouse no ícone */
+.timeline-step:hover .step-icon {
+    background: var(--primary-blue);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+}
+
+/* Conteúdo de Texto abaixo do ícone */
+.step-content {
+    background: rgba(17, 34, 64, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    min-height: 200px; /* Mantém todos os cartões com a mesma altura */
+    transition: all 0.3s ease;
+}
+
+.timeline-step:hover .step-content {
+    background: rgba(17, 34, 64, 0.8);
+    border-color: var(--accent-blue);
+}
+
+/* Número pequeno de indicação */
+.step-number {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.step-content h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.step-content p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.step-content strong {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Responsividade para telas menores (Vira uma timeline vertical) */
+@media (max-width: 900px) {
+    .timeline-horizontal {
+        flex-direction: column;
+        padding-top: 0;
+        gap: 2rem;
+    }
+    .timeline-horizontal::before,
+    .timeline-horizontal::after {
+        display: none; /* Esconde a linha horizontal */
+    }
+    .timeline-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 1.5rem;
+    }
+    .step-icon {
+        margin-bottom: 0;
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .step-content {
+        min-height: auto;
+        flex: 1;
+    }
+}
+
+/* =========================================
+   SLIDE 2: LAYOUT DIVIDIDO (A FORÇA DA VETEC)
+   ========================================= */
+.split-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.split-left {
+    flex: 1;
+}
+
+.split-left .highlight-box {
+    background: rgba(37, 99, 235, 0.05);
+    border-left: 4px solid var(--primary-blue);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.split-left .highlight-box i {
+    position: absolute;
+    top: -10px; left: 15px;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    background: var(--bg-dark);
+    padding: 0 5px;
+}
+
+.split-left .highlight-box p {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.split-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.strength-item {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.strength-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-blue);
+}
+
+.strength-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.strength-content h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.strength-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =========================================
+   SLIDE 3: GRADE DE PROBLEMAS (O CUSTO INVISÍVEL)
+   ========================================= */
+.problem-section {
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.05) 0%, transparent 70%);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.problem-card {
+    background: rgba(17, 34, 64, 0.8);
+    border: 1px solid rgba(239, 68, 68, 0.3); /* Borda vermelha sutil */
+    border-top: 4px solid var(--danger-red); /* Destaque no topo */
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--danger-red);
+    box-shadow: 0 15px 40px rgba(239, 68, 68, 0.15);
+}
+
+.problem-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.problem-header i {
+    font-size: 2rem;
+    color: var(--danger-red);
+}
+
+.problem-header h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.problem-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.problem-impact {
+    background: rgba(239, 68, 68, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #fca5a5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto; /* Empurra para o fundo */
+}
+
+.problem-quote {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.problem-quote p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+    border-bottom: 2px solid var(--danger-red);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* Responsividade dos Slides 2 e 3 */
+@media (max-width: 900px) {
+    .split-layout {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+    .problem-quote p {
+        font-size: 1.1rem;
+    }
+}
+
+/* =========================================
+   SLIDE 2: STATEMENT & PILARES (A FORÇA DA VETEC)
+   ========================================= */
+.statement-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.statement-header {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.statement-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: #fff;
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 1.5rem 0;
+    letter-spacing: -1px;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, var(--accent-blue), #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.statement-subtitle {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Grid de Pilares */
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.pillar-card {
+    background: rgba(17, 34, 64, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: left;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* Linha sutil no topo de cada cartão */
+.pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--border-color);
+    transition: background 0.4s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(17, 34, 64, 0.8);
+    border-color: rgba(74, 144, 226, 0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.pillar-card:hover::before {
+    background: var(--accent-blue);
+}
+
+/* Número do Pilar (Fundo) */
+.pillar-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Ícone do Pilar */
+.pillar-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(74, 144, 226, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon {
+    background: var(--accent-blue);
+    color: #fff;
+}
+
+.pillar-card h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.pillar-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .statement-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* =========================================
+   SLIDE 6: ROADMAP ESCALONADO (STAGGERED)
+   ========================================= */
+.staggered-roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+    padding-bottom: 50px;
+}
+
+/* O Efeito Escalonado (Desce um pouco a cada bloco) */
+.phase-card:nth-child(1) { transform: translateY(0); }
+.phase-card:nth-child(2) { transform: translateY(30px); }
+.phase-card:nth-child(3) { transform: translateY(60px); }
+.phase-card:nth-child(4) { transform: translateY(90px); }
+
+.phase-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Efeito de ficha técnica (linha de topo) */
+.phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.phase-card:hover {
+    transform: translateY(-10px) !important; /* Sobrepõe o escalonamento no hover */
+    border-color: var(--accent-blue);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+}
+
+.phase-card:hover::before {
+    background: var(--success-green);
+}
+
+/* Número Gigante de Fundo */
+.phase-bg-number {
+    position: absolute;
+    bottom: -15px;
+    right: -5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.phase-card:hover .phase-bg-number {
+    color: rgba(74, 144, 226, 0.08);
+    transform: scale(1.1);
+}
+
+/* Conteúdo do Cartão */
+.phase-content {
+    position: relative;
+    z-index: 2;
+}
+
+.phase-time {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-blue);
+    background: rgba(37, 99, 235, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.phase-content h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.phase-content p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Linha de Conexão Lateral (Visual de avanço) */
+.phase-line {
+    position: absolute;
+    top: 50%;
+    right: -1.5rem;
+    width: 1.5rem;
+    height: 1px;
+    background: dashed rgba(74, 144, 226, 0.3);
+    z-index: 1;
+}
+
+.phase-card:last-child .phase-line {
+    display: none; /* Remove a linha do último cartão */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .staggered-roadmap {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    /* Reseta o escalonamento para telas menores */
+    .phase-card:nth-child(1), .phase-card:nth-child(2), 
+    .phase-card:nth-child(3), .phase-card:nth-child(4) { 
+        transform: translateY(0); 
+    }
+    .phase-line { display: none; }
+}
+
+@media (max-width: 768px) {
+    .staggered-roadmap {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   SLIDE 8: PRECIFICAÇÃO (MODULAR vs HERO)
+   ========================================= */
+.pricing-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* Lado Esquerdo: Grid de Módulos (2x2) */
+.pricing-modules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.module-card {
+    background: rgba(17, 34, 64, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card:hover {
+    background: rgba(17, 34, 64, 0.8);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+.module-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.module-header i {
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+}
+
+.module-header h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.module-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.module-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.module-card ul li {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    padding-left: 15px;
+    position: relative;
+}
+
+.module-card ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+}
+
+/* Lado Direito: O Pacote Completo (Hero) */
+.pricing-hero {
+    background: linear-gradient(145deg, rgba(37, 99, 235, 0.15) 0%, rgba(10, 17, 40, 0.9) 100%);
+    border: 2px solid var(--primary-blue);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.pricing-hero:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 60px rgba(37, 99, 235, 0.25);
+}
+
+/* Selo "Recomendado" */
+.hero-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--success-green);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-bottom-left-radius: 12px;
+    letter-spacing: 1px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+
+.hero-icon {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.5));
+}
+
+.pricing-hero h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-hero p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-price-box {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.price-sub {
+    font-size: 0.75rem;
+    color: var(--success-green);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Lista de Vantagens do Pacote */
+.hero-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.hero-features li {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-features li i {
+    color: var(--success-green);
+    font-size: 1.1rem;
+}
+
+/* Rodapé do Cartão Hero */
+.hero-footer {
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .pricing-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .pricing-modules {
+        grid-template-columns: 1fr;
+    }
+}

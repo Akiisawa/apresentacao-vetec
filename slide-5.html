@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- NAVEGAÇÃO LATERAL -->
     <nav class="side-nav">
         <a href="index.html" class="nav-dot" data-label="Capa"></a>
         <a href="slide-2.html" class="nav-dot" data-label="A Força da Vetec"></a>
@@ -20,31 +21,69 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
+    <!-- CONTEÚDO DO SLIDE -->
+    <section class="container hidden">
+        
+        <div style="margin-bottom: 3rem;">
             <h2 class="title-section"><i class="fa-solid fa-route"></i> Exemplo Prático: A Jornada de uma OS</h2>
             <p class="subtitle">Da solicitação do cliente à entrega, com rastreabilidade total.</p>
+        </div>
+
+        <!-- TIMELINE HORIZONTAL -->
+        <div class="timeline-horizontal">
             
-            <div class="grid-cards">
-                <div class="card">
-                    <h3><i class="fa-solid fa-pen-ruler"></i> 1. Vendas & Engenharia</h3>
-                    <p>Vendas registra o pedido e gera a OS. Engenharia anexa o desenho revisado e a lista de materiais (BOM) direto no sistema.</p>
+            <!-- Etapa 1 -->
+            <div class="timeline-step">
+                <div class="step-icon">
+                    <i class="fa-solid fa-pen-ruler"></i>
                 </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-cart-shopping"></i> 2. Compras & PCP</h3>
-                    <p>Compras é acionada automaticamente para itens faltantes no estoque. O PCP planeja a capacidade das máquinas.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-industry"></i> 3. Produção & Qualidade</h3>
-                    <p>Produção aponta o início da usinagem e a solda em tempo real. Qualidade registra a inspeção dimensional vinculada à OS.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-truck-fast"></i> 4. Expedição & Faturamento</h3>
-                    <p>Expedição emite a nota fiscal com base no que foi realmente produzido. O cliente recebe o status atualizado.</p>
+                <div class="step-content">
+                    <span class="step-number">01</span>
+                    <h3>Vendas & Engenharia</h3>
+                    <p>Pedido aprovado gera a <strong>OS automática</strong>. Engenharia anexa o desenho revisado e a lista de materiais (BOM).</p>
                 </div>
             </div>
+
+            <!-- Etapa 2 -->
+            <div class="timeline-step">
+                <div class="step-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-number">02</span>
+                    <h3>Compras & PCP</h3>
+                    <p>O sistema aciona <strong>compras automáticas</strong> para itens em falta. O PCP planeja a capacidade das máquinas.</p>
+                </div>
+            </div>
+
+            <!-- Etapa 3 -->
+            <div class="timeline-step">
+                <div class="step-icon">
+                    <i class="fa-solid fa-industry"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-number">03</span>
+                    <h3>Produção & Qualidade</h3>
+                    <p>Apontamento em tempo real no chão de fábrica (usinagem e solda). Laudo de inspeção <strong>vinculado à OS</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Etapa 4 -->
+            <div class="timeline-step">
+                <div class="step-icon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div class="step-content">
+                    <span class="step-number">04</span>
+                    <h3>Expedição & Faturamento</h3>
+                    <p>Emissão da NF com base no que foi produzido. O cliente recebe o <strong>status de entrega atualizado</strong>.</p>
+                </div>
+            </div>
+
         </div>
+
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

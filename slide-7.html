@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- NAVEGAÇÃO LATERAL -->
     <nav class="side-nav">
         <a href="index.html" class="nav-dot" data-label="Capa"></a>
         <a href="slide-2.html" class="nav-dot" data-label="A Força da Vetec"></a>
@@ -20,33 +21,96 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
-            <h2 class="title-section"><i class="fa-solid fa-sack-dollar"></i> Retorno Sobre o Investimento (ROI)</h2>
-            <p class="subtitle">O ERP se paga rapidamente com a redução de desperdícios e ganho de eficiência.</p>
+    <!-- CONTEÚDO DO SLIDE -->
+    <section class="container hidden">
+        
+        <div style="text-align: left; margin-bottom: 2rem; width: 100%; max-width: 1100px; margin: 0 auto 2rem auto;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--success-green); letter-spacing: 2px;">// 07. VALIDAÇÃO FINANCEIRA</span>
+            <h2 class="title-section" style="border: none; padding: 0; font-size: 2.5rem; margin-top: 0.5rem;">Impacto Operacional & ROI</h2>
+            <p class="subtitle" style="padding: 0;">O ERP não é um custo, é um motor de recuperação de capital.</p>
+        </div>
 
-            <div class="roi-container">
-                <div class="roi-box">
-                    <h3>Onde a Vetec economiza:</h3>
-                    <ul>
-                        <li><strong>Redução de retrabalho de engenharia:</strong> até 30% com versionamento controlado de desenhos.</li>
-                        <li><strong>Acurácia de estoque:</strong> de planilhas para 95%+ de confiabilidade, eliminando compras emergenciais.</li>
-                        <li><strong>Otimização de prazos:</strong> visibilidade em tempo real permite replanejar a produção sem gargalos.</li>
-                        <li><strong>Rastreabilidade:</strong> conformidade total por OS, reduzindo refugo e desperdício de material.</li>
-                    </ul>
+        <div class="roi-dashboard">
+            
+            <!-- Coluna Esquerda: Onde economizamos -->
+            <div class="roi-benefits">
+                <h3><i class="fa-solid fa-chart-line"></i> Recuperação de Capital</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.9rem;">Com a unificação dos dados, a Vetec elimina os 3 maiores vazamentos de dinheiro do fluxo atual:</p>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-rotate-left"></i></div>
+                    <div>
+                        <h4>Redução de Retrabalho</h4>
+                        <p>Até 30% de economia em horas de engenharia e usinagem com versionamento controlado.</p>
+                    </div>
                 </div>
-                <div class="roi-highlight">
-                    <p>Projeção conservadora de economia e ganho de eficiência:</p>
-                    <div class="big-number">R$ 7.500</div>
-                    <div class="big-text">/ mês</div>
-                    <hr style="border-color: rgba(16,185,129,0.3); margin: 1.5rem 0;">
-                    <p style="font-size: 1rem; margin-bottom: 0.5rem;">Investimento Total: R$ 60.000</p>
-                    <p style="font-size: 1.2rem; font-weight: 600; color: #fff;">Tempo de Payback:</p>
-                    <div class="big-number" style="font-size: 3.5rem; color: #fff;">8 meses</div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <div>
+                        <h4>Estoque Inteligente</h4>
+                        <p>Acurácia de 95%+ no inventário, eliminando compras emergenciais e material parado.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <div>
+                        <h4>Otimização de Prazos</h4>
+                        <p>Visibilidade em tempo real para replanejar a produção e evitar multas por atraso.</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Coluna Direita: O Placar (Dashboard) -->
+            <div class="roi-scoreboard">
+                <div class="scoreboard-header">
+                    <span>PROJEÇÃO ANUAL</span>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+
+                <!-- Ganho Anual -->
+                <div class="metric-highlight">
+                    <span class="metric-label">Economia Operacional Estimada</span>
+                    <div class="metric-value">R$ 90.000</div>
+                    <span class="metric-sub">por ano</span>
+                </div>
+
+                <!-- Gráfico de Barras CSS -->
+                <div class="roi-bars-container">
+                    <div class="bar-group">
+                        <span class="bar-label">Investimento (R$ 60k)</span>
+                        <div class="bar-track">
+                            <div class="bar-fill bar-investment" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="bar-group">
+                        <span class="bar-label">Retorno no 1º Ano (R$ 90k)</span>
+                        <div class="bar-track">
+                            <div class="bar-fill bar-return" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payback -->
+                <div class="payback-box">
+                    <div>
+                        <span class="metric-label">Tempo de Payback</span>
+                        <div class="payback-value">8 Meses</div>
+                    </div>
+                    <div class="payback-icon">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                </div>
+                
+                <div class="efficiency-tag">
+                    <i class="fa-solid fa-bolt"></i> Ganho Médio de Eficiência: +38.5%
+                </div>
+            </div>
+
         </div>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

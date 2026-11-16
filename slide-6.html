@@ -20,43 +20,65 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
-            <h2 class="title-section"><i class="fa-solid fa-map"></i> Roadmap de Implantação</h2>
-            <p class="subtitle">Do papel ao chão de fábrica em 4 etapas, sem parar a produção.</p>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Fase 1 – Fundação (Mês 1 e 2)</h3>
-                        <p>Cadastros mestres (clientes, fornecedores, itens, estruturas de produto). Limpeza e organização dos dados.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Fase 2 – Núcleo Industrial (Mês 3 e 4)</h3>
-                        <p>Entrada da Engenharia, PCP, Compras e Estoque no sistema. Vinculação de materiais às Ordens de Serviço.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Fase 3 – Chão de Fábrica (Mês 5 e 6)</h3>
-                        <p>Apontamento de produção em tempo real, qualidade e expedição.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Fase 4 – Financeiro e Indicadores (Mês 7 e 8)</h3>
-                        <p>Faturamento, custos reais por OS e liberação dos dashboards gerenciais para a diretoria.</p>
-                    </div>
-                </div>
-            </div>
+    <section class="container hidden">
+        
+        <div style="text-align: left; margin-bottom: 3rem; width: 100%;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-blue); letter-spacing: 2px;">// CRONOGRAMA DE EXECUÇÃO</span>
+            <h2 class="title-section" style="border: none; padding: 0; font-size: 2.5rem; margin-top: 0.5rem;">Roadmap de Implantação</h2>
+            <p class="subtitle" style="padding: 0;">Do papel ao chão de fábrica em 4 fases, sem interromper a produção.</p>
         </div>
+
+        <!-- ROADMAP ESCALONADO (STAGGERED) -->
+        <div class="staggered-roadmap">
+            
+            <!-- Fase 1 -->
+            <div class="phase-card">
+                <div class="phase-bg-number">01</div>
+                <div class="phase-content">
+                    <span class="phase-time"><i class="fa-regular fa-calendar"></i> Mês 1 e 2</span>
+                    <h3>Fundação</h3>
+                    <p>Cadastros mestres (clientes, fornecedores, itens e estruturas). Limpeza e organização dos dados iniciais.</p>
+                </div>
+                <div class="phase-line"></div>
+            </div>
+
+            <!-- Fase 2 -->
+            <div class="phase-card">
+                <div class="phase-bg-number">02</div>
+                <div class="phase-content">
+                    <span class="phase-time"><i class="fa-regular fa-calendar"></i> Mês 3 e 4</span>
+                    <h3>Núcleo Industrial</h3>
+                    <p>Entrada da Engenharia, PCP, Compras e Estoque. Vinculação de materiais às Ordens de Serviço.</p>
+                </div>
+                <div class="phase-line"></div>
+            </div>
+
+            <!-- Fase 3 -->
+            <div class="phase-card">
+                <div class="phase-bg-number">03</div>
+                <div class="phase-content">
+                    <span class="phase-time"><i class="fa-regular fa-calendar"></i> Mês 5 e 6</span>
+                    <h3>Chão de Fábrica</h3>
+                    <p>Apontamento de produção em tempo real (usinagem e solda), controle de qualidade e expedição.</p>
+                </div>
+                <div class="phase-line"></div>
+            </div>
+
+            <!-- Fase 4 -->
+            <div class="phase-card">
+                <div class="phase-bg-number">04</div>
+                <div class="phase-content">
+                    <span class="phase-time"><i class="fa-regular fa-calendar"></i> Mês 7 e 8</span>
+                    <h3>Financeiro & Gestão</h3>
+                    <p>Faturamento, custos reais por OS e liberação dos dashboards gerenciais para a diretoria.</p>
+                </div>
+                <div class="phase-line"></div>
+            </div>
+
+        </div>
+
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

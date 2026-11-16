@@ -20,63 +20,101 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
-            <h2 class="title-section"><i class="fa-solid fa-tags"></i> Investimento Modular</h2>
-            <p class="subtitle">Pague apenas pelo que a Vetec precisa agora. Expanda conforme o crescimento.</p>
+    <section class="container hidden">
+        
+        <div style="text-align: left; margin-bottom: 2rem; width: 100%;">
+            <h2 class="title-section" style="border: none; padding: 0; font-size: 2.2rem;">Investimento Modular</h2>
+            <p class="subtitle" style="padding: 0;">Pague apenas pelo que a Vetec precisa agora. Expanda conforme o crescimento.</p>
+        </div>
 
-            <div class="pricing-container">
-                <div class="pricing-card">
-                    <h4><i class="fa-solid fa-compass-drafting"></i> Engenharia & PCP</h4>
-                    <div class="price">R$ 18.000</div>
+        <div class="pricing-layout">
+            
+            <!-- Lado Esquerdo: Módulos Individuais -->
+            <div class="pricing-modules">
+                <div class="module-card">
+                    <div class="module-header">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <h4>Engenharia & PCP</h4>
+                    </div>
+                    <div class="module-price">R$ 18.000</div>
                     <ul>
                         <li>Gestão de Desenhos (CAD/PLM)</li>
                         <li>Estrutura de Produtos (BOM)</li>
                         <li>Roteiros de Produção</li>
-                        <li>Planejamento de Capacidade</li>
                     </ul>
                 </div>
-                <div class="pricing-card">
-                    <h4><i class="fa-solid fa-boxes-stacked"></i> Suprimentos & Estoque</h4>
-                    <div class="price">R$ 12.000</div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <h4>Suprimentos</h4>
+                    </div>
+                    <div class="module-price">R$ 12.000</div>
                     <ul>
                         <li>Gestão de Fornecedores</li>
                         <li>Requisições e Cotações</li>
-                        <li>Controle de Estoque em Tempo Real</li>
-                        <li>Vínculo de Material à OS</li>
+                        <li>Estoque em Tempo Real</li>
                     </ul>
                 </div>
-                <div class="pricing-card">
-                    <h4><i class="fa-solid fa-gears"></i> Produção & Qualidade</h4>
-                    <div class="price">R$ 18.000</div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <i class="fa-solid fa-gears"></i>
+                        <h4>Produção & Qualidade</h4>
+                    </div>
+                    <div class="module-price">R$ 18.000</div>
                     <ul>
                         <li>Apontamento no Chão de Fábrica</li>
                         <li>Controle de Usinagem e Solda</li>
-                        <li>Inspeção e Laudos de Qualidade</li>
-                        <li>Gestão de Refugo e Retrabalho</li>
+                        <li>Laudos de Qualidade</li>
                     </ul>
                 </div>
-                <div class="pricing-card">
-                    <h4><i class="fa-solid fa-file-invoice-dollar"></i> Financeiro & Gestão</h4>
-                    <div class="price">R$ 12.000</div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <h4>Financeiro</h4>
+                    </div>
+                    <div class="module-price">R$ 12.000</div>
                     <ul>
-                        <li>Faturamento e Nota Fiscal</li>
-                        <li>Custo Real por Ordem de Serviço</li>
-                        <li>Contas a Pagar e Receber</li>
+                        <li>Faturamento e NF</li>
+                        <li>Custo Real por OS</li>
                         <li>Dashboards Gerenciais</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="total-box">
-                <div style="text-align: left;">
-                    <h3>Implantação Completa (Todos os Setores)</h3>
-                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 5px;">*Inclui treinamento, migração de dados e acompanhamento de 8 meses.</p>
+            <!-- Lado Direito: O Pacote Completo (Destaque) -->
+            <div class="pricing-hero">
+                <div class="hero-badge">RECOMENDADO</div>
+                <div class="hero-content">
+                    <i class="fa-solid fa-cubes-stacked hero-icon"></i>
+                    <h3>Implantação Completa</h3>
+                    <p>O ecossistema inteiro da Vetec conectado. A melhor escolha para eliminar o retrabalho de ponta a ponta.</p>
+                    
+                    <div class="hero-price-box">
+                        <span class="price-label">Investimento Total</span>
+                        <div class="hero-price">R$ 60.000</div>
+                        <span class="price-sub">*Sem custos ocultos</span>
+                    </div>
+
+                    <ul class="hero-features">
+                        <li><i class="fa-solid fa-check-circle"></i> Todos os 4 módulos incluídos</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Integração nativa entre setores</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Treinamento e Migração de Dados</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Acompanhamento por 8 meses</li>
+                    </ul>
+
+                    <div class="hero-footer">
+                        <p><i class="fa-solid fa-shield-halved"></i> Garantia de ROI em até 8 meses</p>
+                    </div>
                 </div>
-                <div class="final-price">R$ 60.000</div>
             </div>
+
         </div>
+
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

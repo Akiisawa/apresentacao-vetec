@@ -20,30 +20,63 @@
         <a href="slide-10.html" class="nav-dot" data-label="Próximos Passos"></a>
     </nav>
 
-    <section class="container">
-        <div class="hidden">
-            <h2 class="title-section"><i class="fa-solid fa-triangle-exclamation"></i> O Custo Invisível da Fragmentação</h2>
-            <p class="subtitle">Onde o fluxo atual perde eficiência e gera atrasos.</p>
+    <section class="container hidden problem-section">
+        
+        <div style="text-align: center; margin-bottom: 3rem; width: 100%;">
+            <h2 class="title-section" style="border: none; padding: 0; display: inline-block;">
+                <i class="fa-solid fa-triangle-exclamation" style="color: var(--danger-red);"></i> O Custo Invisível da Fragmentação
+            </h2>
+            <p class="subtitle" style="padding: 0; margin-top: 0.5rem;">Onde o fluxo atual perde eficiência, tempo e dinheiro.</p>
+        </div>
+
+        <!-- Grid de Problemas -->
+        <div class="problem-grid">
             
-            <div class="grid-cards">
-                <div class="card" style="border-left: 4px solid var(--danger-red);">
-                    <h3><i class="fa-solid fa-rotate-left" style="color: var(--danger-red);"></i> Retrabalho de Engenharia</h3>
-                    <p>Desenhos e especificações que voltam para revisão após a liberação para produção, impactando diretamente o cronograma de usinagem e a confiança do cliente.</p>
+            <!-- Problema 1 -->
+            <div class="problem-card">
+                <div class="problem-header">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <h3>Retrabalho de Engenharia</h3>
                 </div>
-                <div class="card" style="border-left: 4px solid var(--danger-red);">
-                    <h3><i class="fa-solid fa-eye-slash" style="color: var(--danger-red);"></i> Estoque "Cego"</h3>
-                    <p>Materiais comprados e estocados sem vinculação direta à Ordem de Serviço (OS). Dificulta o custo real do produto e gera compras emergenciais.</p>
-                </div>
-                <div class="card" style="border-left: 4px solid var(--danger-red);">
-                    <h3><i class="fa-brands fa-whatsapp" style="color: var(--danger-red);"></i> Comunicação Informal</h3>
-                    <p>Ordens e alterações chegando por WhatsApp ou e-mail, sem um registro único e oficial. O chão de fábrica fica suscetível a erros de versão.</p>
+                <p>Desenhos e especificações que voltam para revisão após a liberação para produção.</p>
+                <div class="problem-impact">
+                    <i class="fa-solid fa-arrow-trend-down"></i> Impacto: Atraso direto no cronograma de usinagem.
                 </div>
             </div>
-            <p style="margin-top: 2rem; text-align: center; color: var(--accent-blue); font-style: italic; font-weight: 600;">
-                <i class="fa-solid fa-quote-left"></i> "Cada elo desconectado é um dia de atraso na entrega." <i class="fa-solid fa-quote-right"></i>
-            </p>
+
+            <!-- Problema 2 -->
+            <div class="problem-card">
+                <div class="problem-header">
+                    <i class="fa-solid fa-eye-slash"></i>
+                    <h3>Estoque "Cego"</h3>
+                </div>
+                <p>Materiais comprados e estocados sem vinculação direta à Ordem de Serviço (OS).</p>
+                <div class="problem-impact">
+                    <i class="fa-solid fa-money-bill-wave"></i> Impacto: Compras emergenciais e capital parado.
+                </div>
+            </div>
+
+            <!-- Problema 3 -->
+            <div class="problem-card">
+                <div class="problem-header">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3>Comunicação Informal</h3>
+                </div>
+                <p>Ordens e alterações chegando por WhatsApp ou e-mail, sem um registro oficial.</p>
+                <div class="problem-impact">
+                    <i class="fa-solid fa-bug"></i> Impacto: Suscetibilidade a erros de versão e falhas.
+                </div>
+            </div>
+
         </div>
+
+        <!-- Frase de Fechamento -->
+        <div class="problem-quote">
+            <p>"Cada elo desconectado é um dia de atraso na entrega e uma margem de lucro perdida."</p>
+        </div>
+
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>

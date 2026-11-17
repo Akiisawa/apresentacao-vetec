@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 2. Navegação por Setas do Teclado
     window.addEventListener('keydown', function(e) {
-        const paginas = ['index.html', 'slide-2.html', 'slide-3.html', 'slide-4.html', 'slide-5.html', 'slide-6.html', 'slide-7.html', 'slide-8.html', 'slide-9.html', 'slide-10.html'];
+        const paginas = [
+            'index.html', 'slide-2.html', 'slide-3.html', 'slide-4.html', 
+            'slide-rh.html', 'slide-5.html', 'slide-6.html', 'slide-7.html', 
+            'slide-8.html', 'slide-hospedagem.html', 'slide-9.html', 'slide-10.html'
+        ];
         let pathAtual = window.location.pathname.split('/').pop() || 'index.html';
         const indexAtual = paginas.indexOf(pathAtual);
 
